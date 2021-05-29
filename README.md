@@ -29,7 +29,9 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Solution PC](./images/Solution%20PC.jpg)
+![Solution PC Error](./images/Solution%20PC%20Error.jpg)
+![Solution Mobile](./images/Solution%20Mobile.png)
 
 ### Links
 
@@ -41,40 +43,45 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- SASS
 - Flexbox
 - Mobile-first workflow
+- Vanilla JS
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-	color: papayawhip;
-}
-```
+I was able to review regular expressions which is used in submitting the form.
 
 ```js
-const proudOfThisFunc = () => {
-	console.log("🎉");
-};
+formSubmit.addEventListener("submit", (event) => {
+	//prevent from reloading
+	event.preventDefault();
+
+	if (!regex.test(inputText.value)) {
+		console.log("wrong answer");
+		errorText.style.display = "block";
+		warningIcon.style.display = "block";
+		inputText.style.borderColor = "hsl(0, 93%, 68%)";
+		inputText.style.borderWidth = "2px";
+	} else {
+		errorText.style.display = "none";
+		warningIcon.style.display = "none";
+		inputText.style.borderColor = "hsl(0, 36%, 70%)";
+		inputText.style.borderWidth = "1px";
+	}
+});
 ```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+To be able to practice more vanilla JS.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Submit Event in Vanilla JS](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event) - An example of a submit event in vanilla JS.
+- [RegEx Test Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) - An example of using test function for regex.
+- [RegEx CheatSheet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet) - A cheatsheet for regex.
+- [Prevent Reload of Page when Submitting Form](https://stackoverflow.com/questions/9612569/prevent-browser-jump-to-top-page-when-submit-the-form) - Use preventDefault function to prevent page from reloading.
 
 ## Author
 
