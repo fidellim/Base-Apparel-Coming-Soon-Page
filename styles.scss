@@ -11,7 +11,7 @@ $softRed: hsl(0, 93%, 68%);
 $darkGrayishRed: hsl(0, 6%, 24%);
 
 // gradients
-$whiteGradient: linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%);
+$whiteGradient: 135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%);
 $pinkGradient: 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%);
 
 * {
@@ -25,9 +25,13 @@ body {
 	font-family: $josefin;
 }
 
+.container {
+	width: 100vw;
+}
+
 .logo {
 	margin: 1.5em 1.75em;
-	width: 35%;
+	width: 10rem;
 }
 
 .landing-page {
@@ -37,12 +41,17 @@ body {
 .woman-img {
 	width: 100%;
 	height: auto;
+	display: block;
 	object-fit: cover;
 }
 
 .content-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
-	margin: 2em 1.75em;
+	margin: 4.5em 1.75em;
 
 	h1 {
 		text-transform: uppercase;
@@ -53,13 +62,13 @@ body {
 	p {
 		color: $desaturatedRed;
 		margin-bottom: 1.75em;
+		max-width: 35em;
 		line-height: 1.5;
 	}
 
 	.first-heading {
 		font-weight: 300;
 		color: $desaturatedRed;
-		margin-top: 1.5em;
 	}
 
 	.second-heading {
@@ -71,12 +80,13 @@ body {
 form {
 	position: relative;
 	width: 100%;
-	max-width: 50em;
+	max-width: 35em;
 	margin: 0 auto;
 
 	input[type="text"] {
 		width: 100%;
-		padding: 1em 1.5em;
+		max-width: 50em;
+		padding: 1em 2em;
 		color: black;
 		border: 1px solid $desaturatedRed;
 		border-radius: 25px;
@@ -91,11 +101,89 @@ form {
 		top: 0;
 		right: 0;
 		height: 100%;
-		padding: 0em 1.5em;
+		padding: 0em 1.75em;
 		border-radius: 25px;
 		color: white;
-		border: 1px solid;
+		border: 0;
 		font-size: 1.25em;
 		background-image: linear-gradient($pinkGradient);
+		filter: drop-shadow(0px 10px 5px $desaturatedRed);
+		cursor: pointer;
+	}
+
+	.errorText {
+		position: absolute;
+		bottom: -45%;
+		left: 5%;
+		font-size: 0.75em;
+		color: $softRed;
+		display: none;
+	}
+
+	.fa-exclamation-circle {
+		position: absolute;
+		top: 50%;
+		right: 25%;
+		transform: translate(0%, -50%);
+		color: $softRed;
+		font-size: 1.25em;
+		display: none;
+	}
+}
+form:active {
+	opacity: 0.7;
+}
+
+@media (min-width: 1100px) {
+	.logo {
+		position: absolute;
+		margin: 4em 0 0 8rem;
+	}
+	.landing-page {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.woman-img {
+		content: url("./images/hero-desktop.jpg");
+		height: 100vh;
+		width: auto;
+	}
+
+	.content-container {
+		align-items: flex-start;
+		text-align: left;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		padding-left: 8rem;
+		background-image: url("./images/bg-pattern-desktop.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		h1 {
+			font-size: 4rem;
+			max-width: 6em;
+		}
+
+		p {
+			max-width: 27em;
+		}
+	}
+
+	form {
+		position: relative;
+		margin: 0 0;
+
+		input[type="text"] {
+			padding: 1em 2em;
+		}
+
+		button {
+			padding: 0em 1.75em;
+		}
 	}
 }
